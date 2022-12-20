@@ -7,6 +7,8 @@ mongoose.connect(
   "mongodb+srv://kalobiral:kalobiral@cluster0.aj0djdx.mongodb.net/?retryWrites=true&w=majority"
 );
 
+mongoose.set("strictQuery", true);
+
 const mongoSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -34,7 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5555",
+    origin: "*",
   })
 );
 
